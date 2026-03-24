@@ -1,0 +1,26 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "turborepo-docs": {
+      "description": "Answers questions about Vercel Turborepo by searching local docs at ./library_inference_folder/turborepo/apps/docs. Always includes code examples when available.",
+      "mode": "subagent",
+      "model": "github-copilot/gpt-4.1",
+      "temperature": 0.1,
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "deny",
+          "find *": "allow",
+          "grep -r*": "allow",
+          "grep -i*": "allow",
+          "grep -l*": "allow",
+          "cat *": "allow",
+          "ls *": "allow",
+          "head *": "allow",
+          "sed *": "allow"
+        }
+      },
+      "prompt": "{file:./prompts/turborepo-docs.md}"
+    }
+  }
+}
